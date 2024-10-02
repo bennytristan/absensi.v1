@@ -83,30 +83,19 @@ function selisih($jam_masuk, $jam_keluar)
                 @endif
             </td>
             <td style="text-align: center">
-                @if ($d->lokasi != null)
-                    <a href="#" class="btn btn-primary showmap" id="{{ $d->id }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round"
-                            class="icon icon-tabler icons-tabler-outline icon-tabler-map-search">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                            <path d="M11 18l-2 -1l-6 3v-13l6 -3l6 3l6 -3v7.5" />
-                            <path d="M9 4v13" />
-                            <path d="M15 7v5" />
-                            <path d="M18 18m-3 0a3 3 0 1 0 6 0a3 3 0 1 0 -6 0" />
-                            <path d="M20.2 20.2l1.8 1.8" />
+                @if ($d->lokasi_in != null)
+                    <a href="#" class="btn btn-primary btn-sm showmap" id="{{ $d->id }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M18 6l0 .01"></path>
+                            <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5"></path>
+                            <path d="M10.5 4.75l-1.5 -.75l-6 3l0 13l6 -3l6 3l6 -3l0 -2"></path>
+                            <path d="M9 4l0 13"></path>
+                            <path d="M15 15l0 5"></path>
                         </svg>
                     </a>
-                @else
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-map-off">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                        <path d="M8.32 4.34l.68 -.34l6 3l6 -3v13m-2.67 1.335l-3.33 1.665l-6 -3l-6 3v-13l2.665 -1.333" />
-                        <path d="M9 4v1m0 4v8" />
-                        <path d="M15 7v4m0 4v5" />
-                        <path d="M3 3l18 18" />
-                    </svg>
                 @endif
             </td>
             <td>
@@ -157,7 +146,9 @@ function selisih($jam_masuk, $jam_keluar)
                     <span>-</span>
                 @endif
             </td>
-            <td style="text-align: center">-</td>
+            <td style="text-align: center">
+            <td>{{ $d->keterangan }}</td>
+            </td>
             <td>
                 <a href="#" class="btn btn-success btn-sm koreksiAbsensi" nik="{{ $d->nik }}"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
