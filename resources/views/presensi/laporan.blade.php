@@ -1,7 +1,7 @@
 @extends('layout.admin.tabler')
 @section('content')
     <div class="page-header d-print-none">
-        <div class="container-xl">
+        <div class="container-fluid">
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <h2 class="page-title">
@@ -13,12 +13,12 @@
     </div>
 
     <div class="page-body">
-        <div class="container-xl">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-6">@extends('layout.admin.tabler')
                 @section('content')
                     <div class="page-header d-print-none">
-                        <div class="container-xl">
+                        <div class="container-fluid">
                             <div class="row g-2 align-items-center">
                                 <div class="col">
                                     <h2 class="page-title">
@@ -30,7 +30,7 @@
                     </div>
 
                     <div class="page-body">
-                        <div class="container-xl">
+                        <div class="container-fluid">
                             <div class="row">
                                 <div class="col-6">
                                     <div class="card">

@@ -68,6 +68,8 @@
 
         .ttd {
             font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+
         }
 
         .foot {
@@ -112,7 +114,7 @@
             <tr>
                 <th rowspan="2">NIK</th>
                 <th rowspan="2">Nama Karyawan</th>
-                <th colspan="{{ $jmlhari }}">Bulan {{ $namabulan[$bulan] }} {{ $tahun }}</th>
+                <th colspan="{{ $jmlhari }}">Tanggal</th>
                 <th rowspan="2">H</th>
                 <th rowspan="2">I</th>
                 <th rowspan="2">S</th>
@@ -184,25 +186,8 @@
                             $color = "red";
                         }
                     ?>
-                    <td style="background-color: {{ $color }}">
+                    <td style="text-align: center; background-color: {{ $color }}">
                         {{ $status }}
-                        {{-- @if ($status == 'h')
-                            <span style="font-weight:bold">
-                                {{ $nama_jam_kerja }}
-                            </span>
-                            <br>
-                            <span style="color: green">
-                                {{ $jam_masuk }} - {{ $jam_pulang }}
-                            </span>
-                            <br>
-                            <span style="color: orange">
-                                {{ $jam_in }} - {{ $jam_out }}
-                            </span>
-                            <br>
-                            <span style="color: blue">
-                                Total Jam = {{ $total_jam_kerja }}
-                            </span>
-                        @endif --}}
                     </td>
                     <?php
                     }
@@ -215,18 +200,21 @@
                 </tr>
             @endforeach
         </table>
-        {{-- <h4>Keterangan Libur :</h4>
-        <ol>
-            @foreach ($harilibur as $h)
-                <li>{{ date('d-m-Y', strtotime($h->tgl_libur)) }} - {{ $h->keterangan }}</li>
-            @endforeach
-        </ol> --}}
 
         <table class="ttd" width=100% style="margin-top: 40px">
             <tr>
-                <th width=420px>
+                <td>
+                    <span>Keterangan :</span><br>
+                    <span> H = Hadir</span><br>
+                    <span> I = Ijin</span><br>
+                    <span> S = Sakit</span><br>
+                    <span> C = Cuti</span><br>
+                    <span>A = Alpa / Tanpa Kabar</span><br><br><br>
+                </td>
+
+                <th width=100px>
                 <td style="text-align: center">
-                    <b>Tomohon, {{ date('d-m-Y') }}</b><br>
+                    <b>Tomohon, {{ date('d F Y') }}</b><br>
                     <p>
                         Kepala Bagian Personalia<br><br><br><br><br>
                         <u><b> Aldrin Wagey</b></u>
@@ -234,30 +222,7 @@
                 </th>
             </tr>
         </table>
-
-        <table class="foot" width=100%>
-            <tr>
-                <td>Keterangan :</td>
-            </tr>
-            <tr>
-                <td>H = HADIR</td>
-            </tr>
-            <tr>
-                <td>I = IJIN</td>
-            </tr>
-            <tr>
-                <td>S = SAKIT</td>
-            </tr>
-            <tr>
-                <td>C = CUTI</td>
-            </tr>
-            <tr>
-                <td>A = ALPA / TANPA KABAR</td>
-            </tr>
-        </table>
-
     </section>
-
 </body>
 
 </html>

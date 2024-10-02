@@ -1,20 +1,3 @@
-<?php
-function selisih($jam_masuk, $jam_keluar)
-{
-    [$h, $m, $s] = explode(':', $jam_masuk);
-    $dtAwal = mktime($h, $m, $s, '1', '1', '1');
-    [$h, $m, $s] = explode(':', $jam_keluar);
-    $dtAkhir = mktime($h, $m, $s, '1', '1', '1');
-    $dtSelisih = $dtAkhir - $dtAwal;
-    $totalmenit = $dtSelisih / 60;
-    $jam = explode('.', $totalmenit / 60);
-    $sisamenit = $totalmenit / 60 - $jam[0];
-    $sisamenit2 = $sisamenit * 60;
-    $jml_jam = $jam[0];
-    return $jml_jam . ':' . round($sisamenit2);
-}
-?>
-
 @foreach ($presensi as $d)
     @php
         $foto_in = Storage::url('uploads/absensi/' . $d->foto_in);
@@ -84,7 +67,7 @@ function selisih($jam_masuk, $jam_keluar)
             </td>
             <td style="text-align: center">
                 @if ($d->lokasi_in != null)
-                    <a href="#" class="btn btn-primary btn-sm showmap" id="{{ $d->id }}">
+                    <a href="#" class="badge bg-primary badge-sm showmap" id="{{ $d->id }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2"
                             width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
                             fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -96,6 +79,17 @@ function selisih($jam_masuk, $jam_keluar)
                             <path d="M15 15l0 5"></path>
                         </svg>
                     </a>
+                @else
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M18 6l0 .01"></path>
+                        <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5"></path>
+                        <path d="M10.5 4.75l-1.5 -.75l-6 3l0 13l6 -3l6 3l6 -3l0 -2"></path>
+                        <path d="M9 4l0 13"></path>
+                        <path d="M15 15l0 5"></path>
+                    </svg>
                 @endif
             </td>
             <td>
@@ -133,7 +127,7 @@ function selisih($jam_masuk, $jam_keluar)
                     <span class="badge bg-blue">C</span>
                 @endif
             </td>
-            <td>
+            <td style="text-align: center">
                 @if ($d->status == 'i')
                     <span class="badge bg-orange">{{ $d->kode_ijin }}</span>
                 @elseif ($d->status == 's')
@@ -146,9 +140,7 @@ function selisih($jam_masuk, $jam_keluar)
                     <span>-</span>
                 @endif
             </td>
-            <td style="text-align: center">
-            <td>{{ $d->keterangan }}</td>
-            </td>
+            <td style="text-align: center"></td>
             <td>
                 <a href="#" class="btn btn-success btn-sm koreksiAbsensi" nik="{{ $d->nik }}"><svg
                         xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
